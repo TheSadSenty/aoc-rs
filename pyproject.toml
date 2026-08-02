@@ -1,0 +1,9 @@
+[project]
+name = "aoc-rs"
+version = "0.1.0"
+description = "Advent of code tasks solutions"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pre-commit>=4.6.1",
+]
