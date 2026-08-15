@@ -1,5 +1,5 @@
 use anyhow::Result;
-use aoc2023::{launch_solver, Solver};
+use aoc::{launch_solver, Solver};
 
 struct Day2Solver();
 

@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 
 use anyhow::Result;
-use aoc2023::{launch_solver, Solver};
+use aoc::{launch_solver, Solver};
 
 struct Day1Part2Solver();
 
