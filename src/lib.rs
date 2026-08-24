@@ -9,7 +9,7 @@ pub fn launch_solver<N: Solver>() -> Result<()> {
 
     let file_path = &args
         .get(1)
-        .with_context(|| format!("Miss file path ot task input data"))?;
+        .with_context(|| "Miss file path of task input data")?;
     let mut file = File::open(file_path).with_context(|| format!("Can't open file {file_path}"))?;
     let mut contents = String::new();
 
