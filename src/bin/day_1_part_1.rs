@@ -5,32 +5,16 @@ struct Day1Part1Solver();
 
 impl Solver for Day1Part1Solver {
     fn solve(input_data: String) -> u32 {
-        let data_lines = input_data.lines();
-        let mut sum = 0;
-        for data_line in data_lines {
-            let mut sub_sum = Vec::<u32>::new();
-            for data_bytes in data_line.as_bytes() {
-                match { *data_bytes as char }.to_digit(10) {
-                    Some(num) => {
-                        sub_sum.push(num);
-                    }
-                    None => {}
-                }
-            }
-            if sub_sum.len() == 1 {
-                let final_number = format!("{}{}", sub_sum[0], sub_sum[0])
-                    .parse::<u32>()
-                    .expect("Can't create final number");
-                sum = sum + final_number;
-            } else {
-                let last_element = sub_sum.pop().expect("Got empty Vec");
-                let final_number = format!("{}{}", sub_sum[0], last_element)
-                    .parse::<u32>()
-                    .expect("Can't create final number");
-                sum = sum + final_number;
-            }
-        }
-        sum
+        input_data
+            .lines()
+            .map(|line| {
+                let mut digits = line.chars().flat_map(|c| c.to_digit(10));
+
+                let first_digit = digits.next().unwrap_or(0);
+
+                10 * first_digit + digits.next_back().unwrap_or(first_digit)
+            })
+            .sum::<u32>()
     }
 }
 fn main() -> Result<()> {
