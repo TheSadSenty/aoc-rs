@@ -1,0 +1,10 @@
+pre-commit:
+    parallel: true
+    commands:
+        rustfmt:
+            glob: "*.rs"
+            stage_fixed: true
+            run: cargo fmt --check -- {staged_files}
+        clippy:
+            glob: "*.rs"
+            run: cargo clippy --all-targets --all-features -- -D warnings
